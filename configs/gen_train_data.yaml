@@ -1,0 +1,21 @@
+encoder: {model_name: Qwen/Qwen3-Embedding-4B, dtype: bfloat16, max_length: 2048}
+corpus:  {chunks_path: data/corpus_chunks.jsonl}   # OrderedChunk records {id,text,doc_id,position}
+datagen:
+  n_target_chunks: 2000
+  queries_per_chunk: 10
+  n_random_negatives: 4
+  n_hard_candidates: 20
+  n_hard_negatives: 4
+  neighbor_window: 1
+  query_gen_model: openai/gpt-4o
+  teacher_model: openai/gpt-4o
+  temperature_qgen: 0.7
+  temperature_teacher: 0.0
+  teacher_batch_size: 8
+  trust_teacher_on_positive: false
+  kd_on_random_negatives: false
+  keep_useful_highsim_as_positive: false
+  max_workers: 8
+  seed: 13
+  reasoning_effort: none
+output: {out_dir: data/train}

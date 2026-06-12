@@ -1,0 +1,33 @@
+bank_dir: outputs/index/cemtm_k100
+train_jsonl: data/train/train.jsonl
+chunks_jsonl: data/train/chunks.jsonl
+encoder: {model_name: Qwen/Qwen3-Embedding-4B, dtype: bfloat16, max_length: 2048}
+model:
+  top_l: 16
+  top_m: 8                 # MUST equal the index top_m
+  abstraction_layers: 2
+  abstraction_heads: 4
+  abstraction_ff: 256
+  abstraction_dropout: 0.1
+  abstraction_softmax: true
+  pool: selection_weighted
+  scorer_hidden: [1024, 256]
+  scorer_dropout: 0.1
+train:
+  epochs: 5
+  batch_size: 32
+  lr: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  grad_clip: 1.0
+  alpha: 0.5
+  tau: 2.0
+  tau_squared_scale: true
+  max_candidates_per_query: 16
+  num_workers: 2
+  val_fraction: 0.05
+  eval_every_steps: 200
+  log_every_steps: 50
+  seed: 13
+  device: cuda
+output: {save_dir: outputs/retriever/cemtm_k100}

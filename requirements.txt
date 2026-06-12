@@ -1,0 +1,17 @@
+# Core runtime (encoders, index, models, training, inference, configs)
+torch
+transformers>=4.51
+accelerate
+safetensors
+numpy
+pyyaml
+requests
+
+# Topic-model training (WikiWeb2M harness + CWTM backbone)
+nltk
+tqdm
+
+# Optional: only needed to read a .parquet WikiWeb2M corpus (JSONL needs neither).
+# Uncomment if you point corpus.wikiweb2m_path at a .parquet file.
+# pandas
+# pyarrow

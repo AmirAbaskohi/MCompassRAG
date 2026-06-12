@@ -1,0 +1,14 @@
+encoder:
+  model_name: Qwen/Qwen3-Embedding-4B
+  dtype: bfloat16
+  max_length: 2048
+  query_instruction: "Given a search query, retrieve relevant passages that answer it"
+topic_model: {dir: outputs/topic_models/cemtm_k100}
+index:
+  chunks_path: data/corpus_chunks.jsonl
+  out_dir: outputs/index/cemtm_k100
+  top_m: 8
+  chunk_batch_size: 16
+  topic_batch_size: 8
+retriever: {model_ckpt: outputs/retriever/cemtm_k100/best.pt}
+serve: {k: 5, score_block_size: 4096, query_batch_size: 16, device: cuda}
