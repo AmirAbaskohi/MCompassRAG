@@ -603,3 +603,18 @@ MCompassRAG builds on four upstream topic models, isolated under `third_party/`:
 - **SoftLTM** — Improving Neural Topic Modeling with Semantically-Grounded Soft Label Distributions — <https://arxiv.org/abs/2602.17907>
 
 Released under the **MIT License**.
+
+---
+
+## Citation
+```
+@misc{abaskohi2026mcompassragtopicmetadatasemantic,
+      title={MCompassRAG: Topic Metadata as a Semantic Compass for Paragraph-Level Retrieval}, 
+      author={Amirhossein Abaskohi and Raymond Li and Gaetano Cimino and Peter West and Giuseppe Carenini and Issam H. Laradji},
+      year={2026},
+      eprint={2606.18508},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2606.18508}, 
+}
+```
